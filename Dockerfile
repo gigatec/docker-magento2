@@ -27,20 +27,10 @@ RUN requirements="libpng12-dev libmcrypt-dev libmcrypt4 libcurl3-dev libfreetype
 COPY ./auth.json /var/www/.composer/
 RUN chsh -s /bin/bash www-data
 RUN chown -R www-data:www-data /var/www
-RUN su www-data -c "cd /var/www/html && composer install"
-RUN cd /var/www/html \
-    && find . -type d -exec chmod 770 {} \; \
-    && find . -type f -exec chmod 660 {} \; \
-    && chmod u+x bin/magento
 
 COPY ./bin/install-magento /usr/local/bin/install-magento
-RUN chmod +x /usr/local/bin/install-magento
-
 COPY ./bin/install-sampledata /usr/local/bin/install-sampledata
-RUN chmod +x /usr/local/bin/install-sampledata
-
 COPY ./bin/install-magento-2.1.x-with-sample-data /usr/local/bin/install-magento-2.1.x-with-sample-data
-RUN chmod +x /usr/local/bin/install-magento-2.1.x-with-sample-data
 
 RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
