@@ -4,11 +4,6 @@ cd $MAGEDIR
 
 su www-data <<EOSU
 
-    cd $MAGEDIR \
-      && find . -type d -exec chmod 770 {} \; \
-      && find . -type f -exec chmod 660 {} \; \
-      && chmod u+x bin/magento
-
     echo "install composer"
     composer install
 

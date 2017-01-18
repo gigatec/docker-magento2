@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+init-container
+set-permissions
+init-config
+
+cd $MAGEDIR
+composer install

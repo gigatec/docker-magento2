@@ -31,5 +31,3 @@ array(
 ));" >> /tmp/env.php
 
 mv /tmp/env.php $MAGEDIR/app/etc/env.php
-
-$MAGEDIR/bin/magento cache:clean

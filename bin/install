@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-cd $MAGEDIR
-
-/usr/local/bin/download-magento
+download-magento
 
 if [ -n $MAGENTO_INSTALL_SAMPLE_DATA ]; then
-    /usr/local/bin/download-sampledata
+    download-sampledata
 fi
 
-/usr/local/bin/install-magento
+set-permissions
+install-magento
 
+cd $MAGEDIR
 bin/magento deploy:mode:set developer
 
 bin/magento setup:upgrade
