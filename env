@@ -1,3 +1,6 @@
+#
+# MySQL Configuration
+#
 MYSQL_HOST=db
 MYSQL_ROOT_PASSWORD=
 MYSQL_USER=magento
@@ -5,20 +8,34 @@ MYSQL_PASSWORD=magento
 MYSQL_DATABASE=magento
 MYSQL_ALLOW_EMPTY_PASSWORD=yes
 
+
+#
+# Basic Magento Configuration (used when installing)
+#
 MAGENTO_INSTALL_SAMPLE_DATA=yes
 MAGENTO_VERSION=2.1.3
 MAGENTO_LANGUAGE=en_US
 MAGENTO_TIMEZONE=Europe/Berlin
 MAGENTO_DEFAULT_CURRENCY=EUR
-MAGENTO_URL=http://magento.local/
 
+MAGENTO_URL=http://magento.local/
 MAGENTO_ADMIN_FIRSTNAME=Admin
 MAGENTO_ADMIN_LASTNAME=MyStore
 MAGENTO_ADMIN_EMAIL=amdin@example.com
 MAGENTO_ADMIN_USERNAME=admin
 MAGENTO_ADMIN_PASSWORD=password123
 
+#
+# If you have a mapped volume, you may want to map your
+# user id and group to the one used in the container in 
+# order to avoid permission problems
+#
 LOCAL_USER=2001
 LOCAL_GROUP=33
 
+#
+# You really want to use redis - makes your development much faster! 
+# If this is enabled your config will be adjusted automatically 
+# when running `install` or `init-project` 
+#
 REDIS_ENABLED=yes
