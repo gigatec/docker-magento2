@@ -68,3 +68,12 @@ The following utilities are intended to make your life easier:
 * `install` is the install script to install Magento, either with sample data, or without, see above
 * `enable-redis` changes the config of Magento so that it uses Redis for cache storage (much better performance, even for developing!)
 * `set-permissions` sets permissions for Magento to work properly, according to your user settings
+
+## xdebug
+
+xdebug is installed, but not enabled by default. 
+Not everybody needs it but it slows down your app.
+
+Enable it by running:
+`docker-php-ext-enable xdebug`
+Then adjust your config.

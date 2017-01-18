@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+echo "setting permissions"
 cd $MAGEDIR \
   && find . -type d -exec chmod 770 {} \; \
   && find . -type f -exec chmod 660 {} \; \
-  && chmod u+x bin/magento
+  && chmod u+x bin/magento \
   && chown -R www-data: .

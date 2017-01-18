@@ -3,6 +3,7 @@
 init-container
 set-permissions
 init-config
+init-baseurl
 
 cd $MAGEDIR
 composer install
