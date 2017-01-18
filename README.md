@@ -12,8 +12,7 @@ This image is a development environment for Magento 2 projects. You may either s
 
 ```
 docker-compose up -d
-docker exec -ti {containerId} install-sampledata # (optional)
-docker exec -ti {containerId} install-magento
+docker exec -ti {containerId} install
 ```
 
 ## Use with existing Magento 2

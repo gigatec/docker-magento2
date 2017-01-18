@@ -31,6 +31,7 @@ RUN chsh -s /bin/bash www-data
 RUN chown -R www-data:www-data /var/www
 
 COPY ./bin/* /usr/local/bin/
+RUN chmod +x /usr/local/bin/install
 RUN chmod +x /usr/local/bin/install-*
 RUN chmod +x /usr/local/bin/download-*
 

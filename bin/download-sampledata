@@ -8,11 +8,9 @@ su www-data <<EOSU
     cd /tmp
     wget https://codeload.github.com/magento/magento2-sample-data/tar.gz/${MAGENTO_VERSION} -O sample-data.tar.gz
 
-    tar -xvf sample-data.tar.gz
+    tar -xf sample-data.tar.gz
 
-    cd magento2-sample-data-*
-
-    php -f dev/tools/build-sample-data.php -- --ce-source="$MAGEDIR"
+    cp -r magento2-sample-data-*/* $MAGEDIR/
 
     rm -f sample-data.tar.gz
 

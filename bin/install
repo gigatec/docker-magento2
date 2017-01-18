@@ -4,7 +4,11 @@ MAGEDIR=/var/www/html
 cd $MAGEDIR
 
 /usr/local/bin/download-magento
-/usr/local/bin/install-sampledata-github
+
+if [ -n $MAGENTO_INSTALL_SAMPLE_DATA ]; then
+    /usr/local/bin/download-sampledata
+fi
+
 /usr/local/bin/install-magento
 
 bin/magento deploy:mode:set developer
