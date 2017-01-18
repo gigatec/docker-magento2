@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-MAGEDIR=/var/www/html
 cd $MAGEDIR
 
 /usr/local/bin/download-magento

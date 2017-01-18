@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-MAGEDIR=/var/www/html
-
 su www-data <<EOSU
 
     echo "downloading Magento $MAGENTO_VERSION"

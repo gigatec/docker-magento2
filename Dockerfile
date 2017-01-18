@@ -1,5 +1,7 @@
 FROM php:7.0-apache
 
+ENV MAGEDIR /var/www/html
+
 MAINTAINER Dominik Krebs <dominik.krebs@netzkollektiv.com>
 
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
@@ -31,12 +33,9 @@ RUN chsh -s /bin/bash www-data
 RUN chown -R www-data:www-data /var/www
 
 COPY ./bin/* /usr/local/bin/
-RUN chmod +x /usr/local/bin/install
-RUN chmod +x /usr/local/bin/install-*
-RUN chmod +x /usr/local/bin/download-*
-
 RUN wget -P /usr/local/bin/ https://files.magerun.net/n98-magerun2.phar
-RUN chmod +x /usr/local/bin/n98-*
+
+RUN chmod +x /usr/local/bin/*
 
 COPY ./etc/* /usr/local/etc/php/conf.d/
 

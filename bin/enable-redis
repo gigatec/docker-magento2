@@ -1,0 +1,35 @@
+#!/bin/bash
+
+head -n -1 $MAGEDIR/app/etc/env.php > /tmp/env.php
+
+echo "
+'cache' =>
+array(
+   'frontend' =>
+   array(
+      'default' =>
+      array(
+         'backend' => 'Cm_Cache_Backend_Redis',
+         'backend_options' =>
+         array(
+            'server' => 'redis',
+            'port' => '6379'
+            ),
+    ),
+    'page_cache' =>
+    array(
+      'backend' => 'Cm_Cache_Backend_Redis',
+      'backend_options' =>
+       array(
+         'server' => 'redis',
+         'port' => '6379',
+         'database' => '1',
+         'compress_data' => '0'
+       )
+    )
+  )
+));" >> /tmp/env.php
+
+mv /tmp/env.php $MAGEDIR/app/etc/env.php
+
+$MAGEDIR/bin/magento cache:clean

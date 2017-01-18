@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-MAGEDIR=/var/www/html
 cd $MAGEDIR
 
 su www-data <<EOSU
