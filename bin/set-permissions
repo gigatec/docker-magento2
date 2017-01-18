@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+init-container
+
 echo "setting permissions"
 cd $MAGEDIR \
   && find . -type d -exec chmod 770 {} \; \
