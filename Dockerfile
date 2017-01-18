@@ -30,13 +30,14 @@ COPY ./auth.json /var/www/.composer/
 RUN chsh -s /bin/bash www-data
 RUN chown -R www-data:www-data /var/www
 
-COPY ./bin/install-magento /usr/local/bin/install-magento
-COPY ./bin/install-sampledata /usr/local/bin/install-sampledata
-COPY ./bin/install-magento-2.1.x-with-sample-data /usr/local/bin/install-magento-2.1.x-with-sample-data
-RUN wget -P /usr/local/bin/ https://files.magerun.net/n98-magerun2.phar
-RUN chmod +x /usr/local/bin/install-* /usr/local/bin/n98-*
+COPY ./bin/* /usr/local/bin/
+RUN chmod +x /usr/local/bin/install-*
+RUN chmod +x /usr/local/bin/download-*
 
-RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
+RUN wget -P /usr/local/bin/ https://files.magerun.net/n98-magerun2.phar
+RUN chmod +x /usr/local/bin/n98-*
+
+COPY ./etc/* /usr/local/etc/php/conf.d/
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
