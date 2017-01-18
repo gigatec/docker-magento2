@@ -1,9 +1,23 @@
 # Docker image for Magento 2
 
-[![](https://images.microbadger.com/badges/image/alexcheng/magento2.svg)](http://microbadger.com/images/alexcheng/magento2)
+[![](https://images.microbadger.com/badges/image/netzkollektivgmbh/docker-magento2.svg)](https://microbadger.com/images/netzkollektivgmbh/docker-magento2)
 
-[![Docker build](http://dockeri.co/image/alexcheng/magento2)](https://hub.docker.com/r/alexcheng/magento2/)
+[![Docker build](http://dockeri.co/image/netzkollektiv/docker-magento2)](https://hub.docker.com/r/netzkollektiv/docker-magento2/)
 
-This repo converts the [long installation guide](http://devdocs.magento.com/guides/v1.0/install-gde/bk-install-guide.html) of Magento 2 into simple Docker image to use. It uses the same convention as my [Docker image for Magento 1.x](https://github.com/alexcheng1982/docker-magento).
+This image is a development environment for Magento 2 projects. You may either set up a **new Magento 2** installation with the provided install script or use the image with your **existing Magento project**.
 
-For documentation, please refer to the Magento 1.x [repo](https://github.com/alexcheng1982/docker-magento). These two Docker images follow the same instructions.
+## Usage
+
+### Install Magento 2
+
+```
+docker-compose up -d
+docker exec -ti {containerId} install-sampledata # (optional)
+docker exec -ti {containerId} install-magento
+```
+
+## Use with existing Magento 2
+
+```
+docker-compose up -d
+```

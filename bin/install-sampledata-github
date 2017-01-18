@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+MAGEDIR=/var/www/html
+
+su www-data <<EOSU
+
+    echo "Downloading Sample Data"
+    cd /tmp
+    wget https://codeload.github.com/magento/magento2-sample-data/tar.gz/${MAGENTO_VERSION} -O sample-data.tar.gz
+
+    tar -xvf sample-data.tar.gz
+
+    cd magento2-sample-data-*
+
+    php -f dev/tools/build-sample-data.php -- --ce-source="$MAGEDIR"
+
+    rm -f sample-data.tar.gz
+
+EOSU
