@@ -45,17 +45,28 @@ If unset, sample data will not be installed with the install script.
 
 ## Use with existing Magento 2 project
 
-First you have to adjust the directory mapping in your docker-compose-yml by adding your Magento project. Assuming your project is available in `./web` add volumes as follows:
+First you have to map your Magento project directory in your docker-compose.yml. 
+Assuming your project is available in `./web` add volumes as follows:
+
 ```
   web:
     volumes:
       - ./web:/var/www/html
 ```
+
 After the change start your containers:
 ```
 docker-compose up -d
 docker exec -ti {webContainerId} init-project
 ```
+
+Your project will be set up: 
+* permissions are being adjusted, 
+* the env.php is being generated, 
+* including redis config, if enabled, 
+* the base url for the default store is being adjusted to what you set in env
+
+You only need to import the database, and you're good to go!
 
 ## Settings
 
@@ -68,8 +79,10 @@ The following utilities are intended to make your life easier:
 * `install` is the install script to install Magento, either with sample data, or without, see above
 * `enable-redis` changes the config of Magento so that it uses Redis for cache storage (much better performance, even for developing!)
 * `set-permissions` sets permissions for Magento to work properly, according to your user settings
+* `init-project` inits your project as shown above
 
-## xdebug
+## Additional configuration
+### xdebug
 
 xdebug is installed, but not enabled by default. 
 Not everybody needs it but it slows down your app.
