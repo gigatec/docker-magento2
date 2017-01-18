@@ -31,6 +31,7 @@ RUN chown -R www-data:www-data /var/www
 COPY ./bin/install-magento /usr/local/bin/install-magento
 COPY ./bin/install-sampledata /usr/local/bin/install-sampledata
 COPY ./bin/install-magento-2.1.x-with-sample-data /usr/local/bin/install-magento-2.1.x-with-sample-data
+RUN chmod +x /usr/local/bin/install-*
 
 RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
