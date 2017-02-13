@@ -23,6 +23,7 @@ RUN requirements="libpng12-dev libmcrypt-dev libmcrypt4 libcurl3-dev libfreetype
     && docker-php-ext-install intl \
     && docker-php-ext-install xsl \
     && docker-php-ext-install soap \
+    && docker-php-ext-install mysqli \
     && pecl install xdebug-2.5.0 \
     && requirementsToRemove="libpng12-dev libmcrypt-dev libcurl3-dev libpng12-dev libfreetype6-dev libjpeg62-turbo-dev" \
     && apt-get purge --auto-remove -y $requirementsToRemove
