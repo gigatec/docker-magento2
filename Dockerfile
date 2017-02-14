@@ -4,7 +4,7 @@ ENV MAGEDIR /var/www/html
 
 MAINTAINER Dominik Krebs <dominik.krebs@netzkollektiv.com>
 
-RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+RUN usermod -u 500 www-data && groupmod -g 500 www-data
 
 RUN a2enmod rewrite
 
